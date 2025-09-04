@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URP Website</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: #000;
+    color: white;
+  }
+
+  /* Background with blur */
+  #bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('file:///C:/Users/adamk/Downloads/ChatGPT%20Image%204%20sept.%202025,%2004_10_56.png') center/cover no-repeat;
+    background-size: cover;
+    filter: blur(7px);
+    z-index: 0;
+  }
+
+  /* Splash Screen */
+  #splash {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeOut 1s ease 5s forwards;
+  }
+
+  #splash img {
+    width: 400px;
+    height: 400px;
+    animation: zoom 2s infinite alternate;
+  }
+
+  @keyframes zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.4); }
+  }
+
+  @keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+  }
+
+  /* Menus */
+  #main, .submenu {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .menu, .submenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn {
+    padding: 20px 40px;
+    background: rgba(34,34,34,0.8);
+    border-radius: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s, transform 0.3s;
+  }
+
+  .btn:hover {
+    background: #ff8800;
+    transform: scale(1.1);
+  }
+
+  .hidden { display: none !important; }
+
+  /* Content Styling */
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: white;
+    overflow-y: auto;
+    height: 100%;
+    font-size: 18px;
+    line-height: 1.5;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+  }
+
+  .menu-content h1 {
+    color: orange;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .menu-content h2 {
+    color: orange;
+    margin-top: 20px;
+  }
+
+  .menu-content strong {
+    font-weight: bold;
+    color: #ffcc00;
+  }
+
+  .menu-content ul {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+
+  .server-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 28px;
+    color: orange;
+    animation: zoomServer 2s infinite alternate;
+  }
+
+  @keyframes zoomServer {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+</style>
+</head>
+<body>
+  <!-- Background -->
+  <div id="bg"></div>
+
+  <!-- Splash -->
+  <div id="splash">
+    <img src="https://cdn.discordapp.com/icons/1400487130513281154/facbf2ffdef9fe434819cbb36b4cb1c1.webp?size=1024" alt="Logo">
+  </div>
+
+  <!-- Main Menu -->
+  <div id="main" class="menu">
+    <div class="btn" onclick="openMenu('systemMenu')">URP System</div>
+    <div class="btn" onclick="openMenu('rulesMenu')">URP Rules</div>
+  </div>
+
+  <!-- System Menu (Citizen RP / Gangster RP) -->
+  <div id="systemMenu" class="submenu hidden">
+    <div class="menu">
+      <div class="btn" onclick="openContent('citizenRP')">Citizen RP</div>
+      <div class="btn" onclick="openContent('gangsterRP')">Gangster RP</div>
+      <div class="btn" onclick="goBackToMain('systemMenu')">⬅ Back</div>
+    </div>
+  </div>
+
+  <!-- Rules Menu (Roleplay Rules / Illegal Rules) -->
+  <div id="rulesMenu" class="submenu hidden">
+    <div class="menu">
+      <div class="btn" onclick="openContent('roleplayRules')">Roleplay Rules</div>
+      <div class="btn" onclick="openContent('illegalRules')">Illegal Rules</div>
+      <div class="btn" onclick="goBackToMain('rulesMenu')">⬅ Back</div>
+    </div>
+  </div>
+
+  <!-- Citizen RP Content -->
+  <div id="citizenRP" class="submenu hidden">
+    <div class="menu-content">
+      <h1>Citizen RP</h1>
+      <h1>Salam Drari Jit N3tikom Infos 3la System Li Radi Ykoun 3and Citizen.</h1>
+      <ul>
+        <li>Radi Ykoun Kolchi <strong>Citizen</strong> Nhar Lowel Mn Ghire Factions Legal.</li>
+        <li>Morma Radi Dowzo 24H f Server Radi Tl9aw Concour Dyal Faction Kbar Bhal [<strong>Police</strong>, <strong>Goverment</strong>, <strong>Mechanic</strong>, <strong>Medic</strong>].</li>
+        <li>Morma Y3amro Factions Lkbar Radi Ndozo L <strong>Judiciary</strong> Li Rada T3tik Permission Dyal Tweli Mohami o Thel Bureau West Lmdina.</li>
+        <li>Mora Maradi T3mer Lblasa Radi Ndozo L <strong>Immobilier</strong> Li Kat3tik Permission Tbi3 Dyour Lnas.</li>
+        <li>Nas Li B9aw Kayn Li Radi Ybda Projects Dyalo Kayn Li Radi Yb9a Khdam Normal f Lmdina.</li>
+        <li>7 Day Li Chreht Likom Daba Rah Makaynch Gang's f Lmdina Rire Legal o Citizen.</li>
+      </ul>
+      <div class="btn" onclick="closeContent('citizenRP')">⬅ Back</div>
+      <div class="server-footer">United RolePlay</div>
+    </div>
+  </div>
+
+  <!-- Gangster RP Content -->
+  <div id="gangsterRP" class="submenu hidden">
+    <div class="menu-content">
+      <h1>Gangster RP</h1>
+      <ul>
+        <li>Mli Radi Douz 7 Day 3la Opening Dyal Server 3ad Radi Thel Request Dyal Gang.</li>
+        <li>Khas Kola Citizen 3ando Moyoul l illegal Side ymchi y9eleb 3la Street Li Kaynin o Ykhtaro Wehda o Ysokno Fiha Dik 7 Day Kamla.</li>
+        <li>Moraha Khas Tchriw Chi <strong>Car</strong> Li Radi Dekhloha l Faction a 9al Haja 1 Car.</li>
+        <li>Khas Daf3o 3la Block Dyalkom Dik 7 Day Binma Khdito Faction Hint Momkin Drari Akhrin Ytjem3o o Ydiw Likom Block Li Chditoh.</li>
+        <li>Fight 3la L Block Katkoun Mera Wehda M3a Kola Team La Khserti Katkhroj.</li>
+        <li>Mora Makhdito Faction Khas Tkono Mabin 4-8 Online o Tmchiw 3and Mafia Bach Yakhdo List Dyalkom o Y3tarfo Bikom o Y3tiwkom Access l Dark Web o Takhdo Gift Dyal Depart.</li>
+        <li>Max 5 Gang o Radi Ykoun Test 9bel Matakhdoha.</li>
+        <li>Gang Khas T3ti l Mafia List Fiha Max 8 Member Max o Matkoun 9el Mn 4 Member.</li>
+        <li>Momkin Tzido Wlad Driba o Driver's.</li>
+      </ul>
+      <div class="btn" onclick="closeContent('gangsterRP')">⬅ Back</div>
+      <div class="server-footer">United RolePlay</div>
+    </div>
+  </div>
+
+  <!-- Roleplay Rules Content -->
+  <div id="roleplayRules" class="submenu hidden">
+    <div class="menu-content">
+      <h1>Roleplay Rules</h1>
+      <ul>
+        <li><strong>Freekill:</strong> Te9tel chi wahd f'safe zone for no reason.</li>
+        <li><strong>Revenge Kill:</strong> Fach tmot khasek tensa kolxi, maxi qtlk xiwahd atrje3 t9tlo.</li>
+        <li><strong>Power Gaming:</strong> Khask tkon endk wahd power li mu7addada like real life, mat9drch tka7 mn ste7 ou tbqa wagf, dir chi anim ola chi scenario (/fall).</li>
+        <li><strong>Mass RP:</strong> Khasek tkhayl chi blasa 3amra bhal Street dyal chi gang, tkhayelha 3amra matdkhlch ou takhd rahtk khask t3rf bli atdir chihaja atmot (3amra b gangsters), ola garage comico khask tkhayl fih police, matjich ou dkhllih.</li>
+        <li><strong>Meta Gaming:</strong> Impossible tkon tjib OOC infos ou tebbe9ha fl'roleplay dyalk (te9ra chi infos mn end chiwahd mn discord ou dirha fl'rp.)</li>
+        <li><strong>No Fear:</strong> Matalan chiwahd hazz endk chi weapon ola police khask tkhaf ela perso dyalk, ou mathrbch kon mtye9en anaho ghay'tier fik.</li>
+        <li><strong>Use /me and /do action:</strong> Khask t'user had les actions fga3 les scenario, actions rp f'serveur like : (/me kidir lih handcuff) (/do would you resist?).</li>
+        <li><strong>Trash Talk:</strong> F'roleplay dyalk kon mrebbi, matb9ach gha t3ayr ou kda (trebreb = ban)</li>
+        <li><strong>Fail RP:</strong> Character dyal roleplay dyalk hya character normal khasha t3ich machi clown ola superman rppew meana.</li>
+      </ul>
+      <div class="btn" onclick="closeContent('roleplayRules')">⬅ Back</div>
+      <div class="server-footer">United RolePlay</div>
+    </div>
+  </div>
+
+  <!-- Illegal Rules Content -->
+  <div id="illegalRules" class="submenu hidden">
+    <div class="menu-content">
+      <h1>Illegal Rules</h1>
+      <ul>
+        <li>Kola gang 3andha lhe9 dir braquage kola nhar.</li>
+        <li>Mora mli tdouz l braquage khassk t3mel plan mzyan bach ma tdkhlsh f conflit m3a faction legal.</li>
+        <li>Khas Kolchi Ykoun <strong>RP</strong> ma tdirch chi hwayej ghira RP.</li>
+        <li>Trash Talk o Meta Gaming mamsmou7ch f illegal side.</li>
+        <li>Kola gang kat3raf l border dyalha m3a gangs akhrin, khasskom t7trmoha.</li>
+      </ul>
+      <div class="btn" onclick="closeContent('illegalRules')">⬅ Back</div>
+      <div class="server-footer">United RolePlay</div>
+    </div>
+  </div>
+
+<script>
+  window.onload = () => {
+    setTimeout(()=>{document.getElementById('main').style.display='flex'; document.getElementById('main').style.opacity=1;}, 5000);
+  }
+
+  function openMenu(menuId){
+    document.getElementById("main").classList.add("hidden");
+    document.getElementById("main").style.opacity = 0;
+    const menu = document.getElementById(menuId);
+    menu.classList.remove("hidden");
+    menu.style.display = "flex";
+    setTimeout(()=>{menu.style.opacity = 1;}, 50);
+  }
+
+  function goBackToMain(menuId){
+    const menu = document.getElementById(menuId);
+    menu.classList.add("hidden");
+    menu.style.opacity = 0;
+    menu.style.display = "none";
+    const main = document.getElementById("main");
+    main.classList.remove("hidden");
+    main.style.display = "flex";
+    setTimeout(()=>{main.style.opacity = 1;}, 50);
+  }
+
+  function openContent(contentId){
+    document.querySelectorAll(".submenu").forEach(sec => {
+      sec.classList.add("hidden");
+      sec.style.display = "none";
+      sec.style.opacity = 0;
+    });
+    const content = document.getElementById(contentId);
+    content.classList.remove("hidden");
+    content.style.display = "flex";
+    setTimeout(()=>{content.style.opacity = 1;}, 50);
+  }
+
+  function closeContent(contentId){
+    const content = document.getElementById(contentId);
+    content.classList.add("hidden");
+    content.style.opacity = 0;
+    content.style.display = "none";
+
+    if(contentId === 'citizenRP' || contentId === 'gangsterRP') openMenu('systemMenu');
+    if(contentId === 'roleplayRules' || contentId === 'illegalRules') openMenu('rulesMenu');
+  }
+</script>
+</body>
+</html>
